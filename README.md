@@ -19,3 +19,39 @@ If you encounter any issues, please refer to the official Expo documentation or 
 [docs.expo.dev](https://docs.expo.dev/)
 
 
+## User Stories
+
+1. As a user, I want to view all my contacts in the app so that I can easily access their information.
+2. As a user, I want the app to access my device's location so that I can share it with my contacts if needed.
+
+## Wireframe
+
++-----------------------------------+
+|                                   |
+|         SafeAreaView              |
+|                                   |
+|   +-----------------------------+ |
+|   |                             | |
+|   |         Container           | |
+|   |                             | |
+|   |   +---------------------+   | |
+|   |   |                     |   | |
+|   |   |     FlatList        |   | |
+|   |   |                     |   | |
+|   |   +---------------------+   | |
+|   |                             | |
+|   +-----------------------------+ |
+|                                   |
+|   +-----------------------------+ |
+|   |                             | |
+|   |         Footer              | |
+|   |                             | |
+|   |   +---------------------+   | |
+|   |   |                     |   | |
+|   |   |     Location Info   |   | |
+|   |   |                     |   | |
+|   |   +---------------------+   | |
+|   |                             | |
+|   +-----------------------------+ |
+|                                   |
++-----------------------------------+
