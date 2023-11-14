@@ -13,6 +13,25 @@ This README provides instructions on how to install and use the application. Ple
 5. Make sure you have the latest version of Xcode installed.
 6. Ensure your Simulator is updated and has iOS installed.
 
+### Native Base
+- Here are some useful packages for extending functionality
+- [Docs found here](docs.nativebase.io/install-expo)
+- `npm install native-base`
+- `npx expo install react-native-svg@12.1.1`
+- `npx expo install react-native-safe-area-context@3.3.2`
+
+### How to Publish to Expo
+- install the EAS cli `npm install -g eas-cli`
+- login to your expo account `eas login`
+- Push the update to Expo `eas update`
+
+### How to upload to iOS
+- [docs here](docs.expo.dev/submit/ios)
+- [how to build](http://docs.expo.dev/build/setup)
+- Remember to update the app.json (read docs)
+- `eas build`
+
+
 ## Troubleshooting
 
 If you encounter any issues, please refer to the official Expo documentation or raise an issue in this repository.
