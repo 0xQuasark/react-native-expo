@@ -1,6 +1,13 @@
 import { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, Button,  SafeAreaView, Linking } from 'react-native';
+import { StyleSheet, Text, View, FlatList,  SafeAreaView, Linking } from 'react-native';
+
+import AppBar from './components/AppBar';
+import ContactItem from './components/ComponentButton';
+
+import { Button } from "native-base";
+import { NativeBaseProvider, Box } from "native-base";
+
 
 import * as Contacts from 'expo-contacts';
 import * as Location from 'expo-location';
@@ -51,39 +58,41 @@ export default function App() {
   useEffect(() => {
     console.log('App is loaded');
     getContacts();
-    getLocation();
+    // getLocation();
   }, []);
 
   // console.log('here i is', locationData);
 
 
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <Text>Contacts thinge</Text>
-        <FlatList 
-          data={contactData}  // a list of data objects to do something with
-          keyExtractor={contact => contact.id}     // a function that returns a unique key for each item
-          renderItem={({ item }) =>  
-            <Button 
-              title={item.name} 
-              onPress={() => call(item)} 
-            />
-          }
-        />
-        <StatusBar style="auto" />
-      </View>
-      <View style={styles.footer}>
-        <Text>Location Data Received:</Text>
-        <Text style={styles.locationInfo}>{locationText}</Text>
-      </View>
-    </SafeAreaView>
+    <NativeBaseProvider>
+
+      <SafeAreaView style={styles.safeArea}>
+        <Box style={styles.container}>
+          <FlatList 
+            style={styles.list}
+            data={contactData}  // a list of data objects to do something with
+            keyExtractor={contact => contact.id}     // a function that returns a unique key for each item
+            renderItem={({ item }) =>  
+              <ContactItem
+                title={item.name}  
+                handlePress={() => call(item)} />}
+          />
+          <StatusBar style="auto" />
+        <AppBar title={'Contacts List'} />
+        </Box>
+      </SafeAreaView>
+    </NativeBaseProvider>
   );
 }
 
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
+  },
+  list: {
+    width: '100%',
+    // contentContainerStyle: 'center'
   },
   footer: {
     flex: 1,
@@ -98,7 +107,7 @@ const styles = StyleSheet.create({
     flex: 2,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     borderWidth: 2,
     borderColor: 'purple',
   },

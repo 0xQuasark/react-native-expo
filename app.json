@@ -1,17 +1,5 @@
 {
   "expo": {
-    "plugins": [
-      [
-        "expo-contacts",
-        {
-          "contactsPermission": "Allow $(PRODUCT_NAME) to access your contacts."
-        },
-        "expo-location",
-        {
-          "locationAlwaysAndWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
-        }
-      ]
-    ],
     "name": "contacts",
     "slug": "contacts",
     "version": "1.0.0",
@@ -27,16 +15,29 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.sugaraspa.contacts"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sugaraspa.contacts"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c2c9f13a-e080-48c2-b05e-609a189f773c"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "appVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/c2c9f13a-e080-48c2-b05e-609a189f773c"
     }
   }
 }
